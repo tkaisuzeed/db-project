@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
 import Cookie from 'js-cookie'
 // 
+// import GlobalState from './utils/GlobalState'
 import {SignInAPI} from './API/AuthAPI'
 
 const SignIn = () => {
-
+    
     const [uname, setUname] = useState('');
     const [pass, setPass] = useState('');
 

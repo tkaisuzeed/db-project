@@ -5,6 +5,7 @@ import SignIn from '../SignIn';
 import SignUp from '../SignUp';
 import Home from '../Home';
 import Reservation from '../Reservation'
+import EditReservation from '../EditReservation'
 
 const Routes = () => {
 
@@ -16,6 +17,7 @@ const Routes = () => {
             <AuthRoute path="/signup" component={SignUp} />        
             <Route path="/home" component={Home} />        
             <Route path="/reservation" component={Reservation} />        
+            <Route path="/edit_reservation" component={EditReservation} />        
         </Switch>
     )
 }

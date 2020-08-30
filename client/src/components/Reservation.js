@@ -1,4 +1,4 @@
-import React,{useState, createElement} from 'react'
+import React,{useState} from 'react'
 import {getAllTripAPI} from './API/ReserveAPI'
 
 
@@ -49,6 +49,8 @@ const Reserve = () => {
         })
     }
 
+    
+
     React.useEffect(()=>{
         get_trip();
     },[])
@@ -59,7 +61,7 @@ const Reserve = () => {
             <table className="table table-dark">
                 <thead>
                     <tr>
-                        <th>No.</th>
+                        <th>ID.</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Date</th>

@@ -12,7 +12,5 @@ const reserveRoute = require('./Routes/reserveRoute');
 app.use('/auth',authRoute);
 app.use('/reserve',reserveRoute);
 
-
-
 app.listen(5555,console.log(`Server is running`.red.bgGreen));
 

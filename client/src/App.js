@@ -5,13 +5,13 @@ import Cookie from 'js-cookie'
 // 
 import GlobalState from './components/utils/GlobalState'
 import Route from './components/Router/Routes'
-import SignIn from './components/SignIn';
-
 import Nav from './components/sub/Navbar'
+
 function App() {
 
   const [auth, setAuth] = useState(false);
-  
+  const [user, setUser] = React.useState('');
+
   const isAuth = () =>{
     if(Cookie.get('id')!=null){
       setAuth(true);
@@ -27,7 +27,8 @@ function App() {
 
   return (
     <GlobalState.Provider value={{
-      auth,setAuth
+      auth,setAuth,
+      user,setUser,
     }}>
       <Nav/>
       <Router>

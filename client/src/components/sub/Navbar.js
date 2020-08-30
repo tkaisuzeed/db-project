@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Cookie from 'js-cookie'
 
 import GlobalState from '../utils/GlobalState'
@@ -6,9 +6,7 @@ import {getUserAPI} from '../API/AuthAPI'
 
 const Navbar = () => {
     
-    const {auth} = React.useContext(GlobalState);
-
-    const [user, setUser] = React.useState('');
+    const {auth,setUser,user} = React.useContext(GlobalState);
 
     const getUser=async()=>{
         const res = await getUserAPI(Cookie.get('id'));
@@ -21,9 +19,9 @@ const Navbar = () => {
         window.location.reload(true);
     }
     
-    React.useEffect(()=>{
+    useEffect(()=>{
         getUser();
-    },[])
+    },[auth])
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,12 +41,15 @@ const Navbar = () => {
                                     <a className="nav-link" href="/reservation">Reserve</a>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {user}
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item" href="#">Reserve List</a>
-                                        <a className="dropdown-item" href="#" onClick={handleLogout}>LogOut</a>
+                                        {Cookie.get('id')==='1'?(
+                                            <a className="dropdown-item" href="/edit_reservation">Edit Reservation</a>):
+                                            (<></>)}
+                                        <a className="dropdown-item" href="/reserve_list">Reserve List</a>
+                                        <a className="dropdown-item" onClick={handleLogout}>LogOut</a>
                                     </div>
                                 </li>
                             </>)

@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import Cookie from 'js-cookie'
 
 import {SignUpAPI,hasEmailAPI,hasUserAPI} from './API/AuthAPI'
-import { disable } from 'colors';
 
 const SignUp = () => {
 
