@@ -91,7 +91,6 @@ app.get('/get_user/:id',(req,res)=>{
         if(err)throw err;
         con.query(`select * from customers where (customer_id='${id}')`,(err,resp)=>{
             res.json(resp[0]);
-            
         })
     })
 })

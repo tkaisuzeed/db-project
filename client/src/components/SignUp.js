@@ -83,7 +83,7 @@ const SignUp = () => {
                     <input type="password" className="form-control" onChange={e=>setPass(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <small>If you have an account, <a href="">Sign In</a></small>
+                    <small>If you have an account, <a href="/signin">Sign In</a></small>
                 </div>
                 <button id="auth-btn" className="btn btn-success" onClick={handleSignup}>SignIn</button>
             </form>

@@ -4,6 +4,7 @@ import GlobalState from '../utils/GlobalState'
 import SignIn from '../SignIn';
 import SignUp from '../SignUp';
 import Home from '../Home';
+import Reservation from '../Reservation'
 
 const Routes = () => {
 
@@ -14,6 +15,7 @@ const Routes = () => {
             <AuthRoute path="/signin" component={SignIn} />        
             <AuthRoute path="/signup" component={SignUp} />        
             <Route path="/home" component={Home} />        
+            <Route path="/reservation" component={Reservation} />        
         </Switch>
     )
 }

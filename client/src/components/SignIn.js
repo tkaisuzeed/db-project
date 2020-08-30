@@ -36,7 +36,7 @@ const SignIn = () => {
                     <input type="password" className="form-control" onChange={e=>setPass(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <small>If you don't have an account, <a href="">Sign Up</a></small>
+                    <small>If you don't have an account, <a href="/signup">Sign Up</a></small>
                 </div>
                 <button className="btn btn-success" onClick={handleSignin}>SignIn</button>
             </form>

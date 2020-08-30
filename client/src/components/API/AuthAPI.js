@@ -16,3 +16,7 @@ export const hasEmailAPI = async(account)=>{
     const res = await axios.post('http://localhost:5555/auth/hasEmail',account);
     return res;
 }
+export const getUserAPI =async(id)=>{
+    const res = await axios.get(`http://localhost:5555/auth/get_user/${id}`);
+    return res;
+}
