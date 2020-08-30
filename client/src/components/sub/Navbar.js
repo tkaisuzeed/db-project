@@ -48,7 +48,7 @@ const Navbar = () => {
                                         {Cookie.get('id')==='1'?(
                                             <a className="dropdown-item" href="/edit_reservation">Edit Reservation</a>):
                                             (<></>)}
-                                        <a className="dropdown-item" href="/reserve_list">Reserve List</a>
+                                        <a className="dropdown-item" href="/reserve_list">Account</a>
                                         <a className="dropdown-item" onClick={handleLogout}>LogOut</a>
                                     </div>
                                 </li>

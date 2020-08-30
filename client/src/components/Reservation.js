@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import {getAllTripAPI} from './API/ReserveAPI'
+import Cookie from 'js-cookie'
+import {getAllTripAPI,buyTicketAPI} from './API/ReserveAPI'
 
 
 const Reserve = () => {
@@ -7,6 +8,7 @@ const Reserve = () => {
     const [trips, setTrips] = useState();
     const [trips_id, setTrips_id] = useState(0);
     const [reserveData, setReserveData] = useState({});
+    const [seat, setSeat] = useState(0);
 
     const get_trip=async()=>{
         const data = await getAllTripAPI();
@@ -35,7 +37,8 @@ const Reserve = () => {
                 setReserveData({
                     no:item.trip_id,
                     name:item.trip_name,
-                    date:new Date(item.date).toLocaleDateString()
+                    date:new Date(item.date).toLocaleDateString(),
+                    seat:parseInt(item.seat)
                 })
             })
             row.appendChild(id);
@@ -49,7 +52,34 @@ const Reserve = () => {
         })
     }
 
-    
+    const buyTrip=async()=>{
+
+        if((parseInt(seat)+parseInt(reserveData.seat))<=10){
+            if(seat<6&&seat>0){
+                const newData = {
+                    list:manageAmountTrip(trips_id,seat),
+                    seat:parseInt(seat)+parseInt(reserveData.seat),
+                    user_id:Cookie.get('id'),
+                    trip_id:trips_id
+                };
+                console.log(newData);
+                const res = buyTicketAPI(newData);
+            }else{
+            window.alert(`Pls enter seat amount between 0-5.`)
+            }
+        }else{
+            window.alert(`This trip is full or Pls select trip.`)
+        }
+    }
+
+    const manageAmountTrip=(id,amount)=>{
+        let x=''+id;
+        let y=''+id;
+        for(let i =0;i<amount-1;i++){
+            x+=','+y;
+        }
+        return x;
+    }
 
     React.useEffect(()=>{
         get_trip();
@@ -85,10 +115,10 @@ const Reserve = () => {
                     <input type="text" className="form-control" value={reserveData.date?(reserveData.date):''} placeholder="DATE." disabled/>
                 </div>
                 <div className="col-3">
-                <input type="number" className="form-control" placeholder="0" />
+                <input type="number" className="form-control" placeholder="0" min="1" max="5" onChange={e=>setSeat(e.target.value)} />
                 </div>
                 <div className="col-2">
-                    <button className="btn btn-primary form-control" >Reserve</button>
+                    <button className="btn btn-primary form-control" onClick={buyTrip} >Reserve</button>
                 </div>
             </div>
         </div>

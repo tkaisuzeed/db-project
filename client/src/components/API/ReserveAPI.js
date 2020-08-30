@@ -4,7 +4,7 @@ export const getAllTripAPI=async()=>{
     const res = await axios.get(`http://localhost:5555/reserve/get_trip`);
     return res;
 }
-export const butTicketAPI=async()=>{
+export const buyTicketAPI=async(data)=>{
     const res = await axios.post(`http://localhost:5555/reserve/buy_trip`,data);
     return res;
 }
