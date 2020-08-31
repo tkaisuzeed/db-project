@@ -16,6 +16,7 @@ const SignIn = () => {
             password:pass
         }
         const data = await SignInAPI(newAccount);
+        console.log('log>>',data);
         if(data.data.auth){
             Cookie.set('id',data.data.id);
             window.location.reload(true);

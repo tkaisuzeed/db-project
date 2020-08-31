@@ -84,7 +84,7 @@ const SignUp = () => {
                 <div className="form-group">
                     <small>If you have an account, <a href="/signin">Sign In</a></small>
                 </div>
-                <button id="auth-btn" className="btn btn-success" onClick={handleSignup}>SignIn</button>
+                <button id="auth-btn" className="btn btn-success" onClick={handleSignup}>SignUp</button>
             </form>
         </div>
     )

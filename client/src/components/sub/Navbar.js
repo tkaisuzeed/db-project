@@ -2,26 +2,17 @@ import React,{useEffect} from 'react'
 import Cookie from 'js-cookie'
 
 import GlobalState from '../utils/GlobalState'
-import {getUserAPI} from '../API/AuthAPI'
 
 const Navbar = () => {
     
-    const {auth,setUser,user} = React.useContext(GlobalState);
+    const {auth,user} = React.useContext(GlobalState);
 
-    const getUser=async()=>{
-        const res = await getUserAPI(Cookie.get('id'));
-        console.log(res.data);
-        setUser(res.data.name)
-    }
+    
 
     const handleLogout=()=>{
         Cookie.remove('id');
         window.location.reload(true);
     }
-    
-    useEffect(()=>{
-        getUser();
-    },[auth])
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -48,7 +39,7 @@ const Navbar = () => {
                                         {Cookie.get('id')==='1'?(
                                             <a className="dropdown-item" href="/edit_reservation">Edit Reservation</a>):
                                             (<></>)}
-                                        <a className="dropdown-item" href="/reserve_list">Account</a>
+                                        <a className="dropdown-item" href="/account_management">Account</a>
                                         <a className="dropdown-item" onClick={handleLogout}>LogOut</a>
                                     </div>
                                 </li>
