@@ -7,15 +7,13 @@ const Navbar = () => {
     
     const {auth,user} = React.useContext(GlobalState);
 
-    
-
     const handleLogout=()=>{
         Cookie.remove('id');
         window.location.reload(true);
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark">
             <a className="navbar-brand" href="/home">OMAKASE</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

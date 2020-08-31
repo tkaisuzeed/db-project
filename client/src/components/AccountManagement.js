@@ -43,7 +43,7 @@ const AccountManagement = () => {
     return (
         <div className="container">
             <h1>{client.name}</h1>
-            <table className="table">
+            <table className="table table-dark">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -54,6 +54,7 @@ const AccountManagement = () => {
                     </tr>
                 </thead>
                 <tbody id="trip_tb" >
+                    {/* All trip of user */}
                 </tbody>
             </table>
         </div>

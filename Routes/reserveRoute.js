@@ -13,7 +13,7 @@ const con = mysql.createConnection({
 
 con.connect((err,resp)=>{
     if(err)throw err;
-    console.log(`Database in AUTH_ROUTE is connecting`.red.bgCyan);
+    console.log(`Database in RESERVE_ROUTE is connecting`.red.bgCyan);
 })
 
 app.post('/get_user_trip',(req,res)=>{

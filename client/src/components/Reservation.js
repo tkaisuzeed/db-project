@@ -104,7 +104,7 @@ const Reserve = () => {
                     {/* Data of All Trips. */}
                 </tbody>
             </table>    
-            <div className="row">
+            <div className="row reservation-bar">
                 <div className="col-1">
                     <input type="text" className="form-control" value={reserveData.no?(reserveData.no):''} placeholder="NO." disabled/>
                 </div>
