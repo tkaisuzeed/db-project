@@ -16,3 +16,7 @@ export const deleteTripAPI=async(data)=>{
     const res = await axios.post(`http://localhost:5555/reserve/delete_trip`,data);
     return res;
 }
+export const getUserTripAPI=async(data)=>{
+    const res = await axios.post(`http://localhost:5555/reserve/get_user_trip`,data);
+    return res;
+}

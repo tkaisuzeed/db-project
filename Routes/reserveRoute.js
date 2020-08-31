@@ -16,6 +16,17 @@ con.connect((err,resp)=>{
     console.log(`Database in AUTH_ROUTE is connecting`.red.bgCyan);
 })
 
+app.post('/get_user_trip',(req,res)=>{
+    
+    const {id} = req.body;
+    const sql = `select * from trip where (trip_id = ${id})`;
+
+    con.query(sql,(err,resp)=>{
+        res.json(resp[0]);
+    })
+
+})
+
 app.get('/get_trip',(req,res)=>{
     
     const sql = `select * from trip`;

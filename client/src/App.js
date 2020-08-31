@@ -12,12 +12,13 @@ function App() {
 
   const [auth, setAuth] = useState(false);
   const [user, setUser] = React.useState('');
-  const [client, setClient] = React.useState();
+  const [client, setClient] = React.useState({});
 
   const getUser=async()=>{
     const res = await getUserAPI(Cookie.get('id'));
     console.log(res.data);
-    setUser(res.data.name)
+    setClient(res.data);
+    setUser(res.data.name);
   }
 
   const isAuth = () =>{
@@ -38,6 +39,7 @@ function App() {
     <GlobalState.Provider value={{
       auth,setAuth,
       user,setUser,
+      client, setClient,
     }}>
       <Nav/>
       <Router>

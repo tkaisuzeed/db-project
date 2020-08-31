@@ -4,7 +4,6 @@ import {getAllTripAPI,insertTripAPI,deleteTripAPI} from './API/ReserveAPI'
 const EditReservation = () => {
 
     const [trips, setTrips] = useState();
-    const [trips_id, setTrips_id] = useState(0);
 
     const [name, setName] = useState('');
     const [desp, setDesp] = useState('');
@@ -64,7 +63,7 @@ const EditReservation = () => {
             price:+price
         }
         const res = await insertTripAPI(newData);
-        console.log('New Trip >> ',res);
+        window.location.reload(true);
     }
 
     React.useEffect(()=>{
